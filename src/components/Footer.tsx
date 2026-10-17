@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { navigateTo } from '../lib/navigation';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -23,12 +24,22 @@ export const Footer: React.FC = () => {
 
           {/* Nav links */}
           <div className="flex items-center gap-6 text-xs text-slate-400 font-medium">
-            <a href="#home" className="hover:text-blue-400 transition-colors">Home</a>
-            <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
-            <a href="#skills" className="hover:text-blue-400 transition-colors">Skills</a>
-            <a href="#project" className="hover:text-blue-400 transition-colors">Project</a>
-            <a href="#blog" className="hover:text-blue-400 transition-colors">Blog</a>
-            <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
+            {['Home', 'About', 'Skills', 'Project', 'Blog', 'Contact'].map((label) => {
+              const href = `#${label.toLowerCase()}`;
+              return (
+                <a
+                  key={label}
+                  href={href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateTo(href);
+                  }}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  {label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Back to top button */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { navigateTo } from '../lib/navigation';
 
 interface NavbarProps {
   activeSection: string;
@@ -29,10 +30,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigateTo(href);
   };
 
   return (
@@ -58,7 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           </a>
 
           {/* Zone 2: 6 clean single-line nav links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <nav className="hidden md:flex items-center gap-1 p-1 rounded-xl bg-slate-900/60 border border-slate-800/80 text-sm font-medium text-slate-300">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -66,14 +64,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative py-1 whitespace-nowrap shrink-0 transition-colors ${
-                    isActive ? 'text-blue-400 font-semibold' : 'hover:text-white'
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`relative px-3.5 py-1.5 rounded-lg border whitespace-nowrap shrink-0 transition-all duration-200 ${
+                    isActive
+                      ? 'text-white font-semibold bg-blue-600/25 border-blue-500/50 shadow-md shadow-blue-600/20'
+                      : 'border-transparent hover:text-white hover:bg-slate-800/50 hover:border-slate-700/60'
                   }`}
                 >
                   {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full" />
-                  )}
                 </a>
               );
             })}

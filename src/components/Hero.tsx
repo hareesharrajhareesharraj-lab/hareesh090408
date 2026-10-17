@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Mail, Sparkles, Database, Brain, Cpu } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
+import { navigateTo } from '../lib/navigation';
 
 export const Hero: React.FC = () => {
   const { data } = usePortfolio();
@@ -15,16 +16,13 @@ export const Hero: React.FC = () => {
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const elem = document.querySelector(id);
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigateTo(id);
   };
 
   return (
     <section
       id="home"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden"
+      className="relative min-h-[70vh] flex items-center justify-center py-14 sm:py-16 overflow-hidden"
     >
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />

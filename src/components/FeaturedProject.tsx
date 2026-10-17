@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { AbstractModal } from './AbstractModal';
 import { usePortfolio } from '../context/PortfolioContext';
+import { navigateTo } from '../lib/navigation';
 
 export const FeaturedProject: React.FC = () => {
   const { data } = usePortfolio();
@@ -57,10 +58,7 @@ export const FeaturedProject: React.FC = () => {
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const elem = document.querySelector(id);
-    if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigateTo(id);
   };
 
   return (
@@ -172,12 +170,7 @@ export const FeaturedProject: React.FC = () => {
       <AbstractModal
         isOpen={abstractModalOpen}
         onClose={() => setAbstractModalOpen(false)}
-        onNavigateToBlog={() => {
-          const blogElem = document.querySelector('#blog');
-          if (blogElem) {
-            blogElem.scrollIntoView({ behavior: 'smooth' });
-          }
-        }}
+        onNavigateToBlog={() => navigateTo('#blog')}
       />
     </section>
   );
