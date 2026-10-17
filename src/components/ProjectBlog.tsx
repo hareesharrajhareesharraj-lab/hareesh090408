@@ -269,20 +269,6 @@ export const ProjectBlog: React.FC = () => {
                 EDA revealed pronounced physical couplings between solar-wind dynamic pressure and the southward orientation of the IMF Bz vector. When Bz points strongly south (&lt; -10 nT) concurrent with elevated bulk velocity (&gt; 650 km/s), magnetic reconnection drastically amplifies energy transfer into Earth’s magnetosphere.
               </p>
 
-              {/* Data Science Dashboard Visual */}
-              <div className="rounded-xl overflow-hidden border border-slate-700/80 mb-6 bg-slate-950">
-                <img
-                  src="/src/assets/images/solar_data_analysis_1792228906010.jpg"
-                  alt="Correlation matrix and exploratory data analysis charts"
-                  referrerPolicy="no-referrer"
-                  className="w-full aspect-[4/3] max-h-96 object-cover"
-                />
-                <div className="p-3 bg-slate-900/90 text-xs text-slate-400 font-data border-t border-slate-800 flex justify-between items-center">
-                  <span>Figure 4.1: Feature Correlation Heatmap & Decision Boundary Diagnostics</span>
-                  <span className="text-blue-400">NASA OMNI Inspection</span>
-                </div>
-              </div>
-
               {/* Parameter Glossary */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {keyParameters.map((param, i) => (

@@ -87,7 +87,7 @@ export const FeaturedProject: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Left Col: Overview & Actions */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-12 space-y-6">
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/70 border border-blue-700/30 text-blue-300 text-xs font-data">
                   <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
@@ -131,26 +131,6 @@ export const FeaturedProject: React.FC = () => {
                   <Mail className="w-4 h-4 text-blue-400" />
                   <span>Contact Me</span>
                 </a>
-              </div>
-            </div>
-
-            {/* Right Col: Scientific Project Visual */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden border border-blue-500/30 shadow-2xl bg-black/50 group">
-                <img
-                  src="/src/assets/images/solar_activity_hero_1792228903886.jpg"
-                  alt="Scientific visualization of solar activity and space weather"
-                  referrerPolicy="no-referrer"
-                  className="w-full aspect-[16/10] object-cover group-hover:scale-103 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050b18]/90 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-slate-300 font-data">
-                  <span className="flex items-center gap-1.5 text-cyan-300 font-medium">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                    NASA OMNI Telemetry
-                  </span>
-                  <span className="text-slate-400">{data.projectDataPeriod}</span>
-                </div>
               </div>
             </div>
 
