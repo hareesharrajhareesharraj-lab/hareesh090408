@@ -51,8 +51,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             onClick={(e) => handleNavClick(e, '#home')}
             className="group flex items-center gap-2 whitespace-nowrap shrink-0 text-white font-display text-lg sm:text-xl font-bold tracking-tight hover:text-blue-400 transition-colors"
           >
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-              H
+            <span className="w-8 h-8 rounded-lg bg-white overflow-hidden flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+              <img src="/logo.png" alt="" aria-hidden="true" className="w-full h-full object-cover scale-125" />
             </span>
             <span>HAREESHARRAJ</span>
           </a>
