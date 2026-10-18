@@ -1,6 +1,7 @@
 import React from 'react';
 import { Target, GraduationCap, Calendar, Mail, Award, BookOpen, Compass } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
+import { Academic } from './Academic';
 
 export const About: React.FC = () => {
   const { data } = usePortfolio();
@@ -117,6 +118,8 @@ export const About: React.FC = () => {
             );
           })}
         </div>
+
+        <Academic />
 
         {/* Three Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
