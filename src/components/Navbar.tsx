@@ -54,7 +54,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <span className="w-8 h-8 rounded-lg bg-white overflow-hidden flex items-center justify-center shadow-md shadow-[#0EA5C6]/20 group-hover:scale-105 transition-transform">
               <img src="/logo.png" alt="" aria-hidden="true" className="w-full h-full object-cover scale-125" />
             </span>
-            <span>HAREESHARRAJ</span>
+            <span className="brand-text" aria-label="HAREESHARRAJ">
+  {'HAREESHARRAJ'.split('').map((char, i) => (
+  <span
+  key={i}
+  aria-hidden="true"
+  className="brand-letter"
+  style={{ animationDelay: `${0.15 + i * 0.06}s` }}
+  >
+  {char}
+  </span>
+  ))}
+  </span>
           </a>
 
           {/* Zone 2: 6 clean single-line nav links */}
