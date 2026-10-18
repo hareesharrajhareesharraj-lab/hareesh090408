@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
+import { Academic } from './components/Academic';
 import { Skills } from './components/Skills';
 import { FeaturedProject } from './components/FeaturedProject';
 import { ProjectBlog } from './components/ProjectBlog';
@@ -54,6 +55,7 @@ function PortfolioContent() {
       <main className="relative z-10">
         <Hero />
         <About />
+  <Academic />
         <Skills />
         <FeaturedProject />
         <ProjectBlog />

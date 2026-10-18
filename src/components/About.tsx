@@ -1,7 +1,6 @@
 import React from 'react';
-import { Target, GraduationCap, Calendar, Mail, Award, BookOpen, Compass } from 'lucide-react';
+import { Target, GraduationCap, Calendar, Mail, Award, BookOpen, Compass, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
-import { Academic } from './Academic';
 
 export const About: React.FC = () => {
   const { data } = usePortfolio();
@@ -119,7 +118,20 @@ export const About: React.FC = () => {
           })}
         </div>
 
-        <Academic />
+        <div className="flex justify-center mb-10">
+          <a
+            href="#academics"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('academics')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="inline-flex items-center gap-1.5 rounded-full border border-blue-800/50 bg-blue-950/50 px-3.5 py-1.5 text-xs font-semibold text-blue-300 hover:bg-blue-900/60 hover:text-blue-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+          >
+            <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
+            Academics
+            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+          </a>
+        </div>
 
         {/* Three Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

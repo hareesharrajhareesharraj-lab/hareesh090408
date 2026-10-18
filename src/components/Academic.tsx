@@ -13,10 +13,17 @@ const academic = {
 
 export const Academic: React.FC = () => {
   return (
-    <div className="mb-10">
-      <div className="flex items-center gap-2 mb-4">
-        <GraduationCap className="w-5 h-5 text-blue-400" aria-hidden="true" />
-        <h3 className="text-lg sm:text-xl font-bold text-white font-display">Academic</h3>
+    <section id="academics" className="py-20 relative scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-blue-400 tracking-wider uppercase mb-2">
+          <GraduationCap className="w-4 h-4" aria-hidden="true" />
+          Education
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+          Academics
+        </h2>
+        <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 rounded-full" />
       </div>
 
       <article className="glass-panel rounded-2xl overflow-hidden border border-blue-900/30 shadow-xl flex flex-col md:flex-row">
@@ -79,6 +86,7 @@ export const Academic: React.FC = () => {
           </div>
         </div>
       </article>
-    </div>
+      </div>
+    </section>
   );
 };
