@@ -7,10 +7,9 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Academic } from './components/Academic';
 import { Skills } from './components/Skills';
 import { FeaturedProject } from './components/FeaturedProject';
-import { ProjectBlog } from './components/ProjectBlog';
+import { MenuSections } from './components/MenuSections';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ParticleBackground } from './components/ParticleBackground';
@@ -20,7 +19,7 @@ function PortfolioContent() {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'project', 'blog', 'contact'];
+    const sections = ['home', 'about', 'skills', 'project', 'menu', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -55,10 +54,9 @@ function PortfolioContent() {
       <main className="relative z-10">
         <Hero />
         <About />
-  <Academic />
         <Skills />
         <FeaturedProject />
-        <ProjectBlog />
+        <MenuSections />
         <Contact />
       </main>
 
