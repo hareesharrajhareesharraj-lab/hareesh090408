@@ -10,25 +10,25 @@ export const About: React.FC = () => {
       icon: GraduationCap,
       label: 'Department',
       value: data.department,
-      color: 'text-blue-400',
+      color: 'text-[#0EA5C6]',
     },
     {
       icon: Calendar,
       label: 'Age',
       value: `${data.age} Years`,
-      color: 'text-indigo-400',
+      color: 'text-[#0284C7]',
     },
     {
       icon: Target,
       label: 'Career Goal',
       value: data.careerGoal,
-      color: 'text-cyan-400',
+      color: 'text-[#14B8A6]',
     },
     {
       icon: Mail,
       label: 'Contact Email',
       value: data.email,
-      color: 'text-purple-400',
+      color: 'text-purple-600',
       isLink: true,
       href: `mailto:${data.email}`,
     },
@@ -58,27 +58,27 @@ export const About: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="text-xs font-semibold text-blue-400 tracking-wider uppercase mb-2">
+          <div className="text-xs font-semibold text-[#0EA5C6] tracking-wider uppercase mb-2">
             01 · Professional Profile
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
             About Me
           </h2>
-          <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 rounded-full" />
+          <div className="w-12 h-1 bg-gradient-to-r from-[#0EA5C6] to-[#14B8A6] mx-auto mt-4 rounded-full" />
         </div>
 
         {/* Main Introduction Card */}
-        <div className="glass-panel rounded-2xl p-6 sm:p-8 md:p-10 mb-10 shadow-xl border border-blue-900/30 relative group">
+        <div className="glass-panel rounded-2xl p-6 sm:p-8 md:p-10 mb-10 shadow-xl border border-[#DCE7F2] relative group">
           <div className="max-w-4xl mx-auto">
             <div className="mb-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-display leading-snug">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#0F172A] font-display leading-snug">
                 Building the Future of Technology with AI & Data Science
               </h3>
             </div>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-6 font-normal">
+            <p className="text-[#475569] text-base sm:text-lg leading-relaxed mb-6 font-normal">
               {data.aboutIntro}
             </p>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+            <p className="text-[#64748B] text-sm sm:text-base leading-relaxed">
               With hands-on experience in complex algorithmic development, exploratory data analysis on real-world space telemetry, and predictive modeling, he bridges theoretical computer science concepts with actionable technological implementations.
             </p>
           </div>
@@ -91,24 +91,24 @@ export const About: React.FC = () => {
             return (
               <div
                 key={index}
-                className="glass-card rounded-xl p-5 border border-slate-800 flex flex-col justify-between"
+                className="glass-card rounded-xl p-5 border border-[#DCE7F2] flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-9 h-9 rounded-lg bg-blue-950/60 border border-blue-800/40 flex items-center justify-center mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#0EA5C6]/10 border border-[#DCE7F2] flex items-center justify-center mb-3">
                     <Icon className={`w-5 h-5 ${detail.color}`} />
                   </div>
-                  <p className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">
+                  <p className="text-xs font-medium text-[#64748B] uppercase tracking-wider mb-1">
                     {detail.label}
                   </p>
                   {detail.isLink ? (
                     <a
                       href={detail.href}
-                      className="text-sm font-semibold text-blue-300 hover:text-blue-200 transition-colors break-all"
+                      className="text-sm font-semibold text-[#0284C7] hover:text-[#0284C7] transition-colors break-all"
                     >
                       {detail.value}
                     </a>
                   ) : (
-                    <p className="text-sm font-semibold text-slate-200 leading-snug">
+                    <p className="text-sm font-semibold text-[#1E293B] leading-snug">
                       {detail.value}
                     </p>
                   )}
@@ -125,7 +125,7 @@ export const About: React.FC = () => {
               e.preventDefault();
               document.getElementById('academics')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-1.5 rounded-full border border-blue-800/50 bg-blue-950/50 px-3.5 py-1.5 text-xs font-semibold text-blue-300 hover:bg-blue-900/60 hover:text-blue-200 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#DCE7F2] bg-[#0EA5C6]/10 px-3.5 py-1.5 text-xs font-semibold text-[#0284C7] hover:bg-[#0EA5C6]/10 hover:text-[#0284C7] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0EA5C6]"
           >
             <GraduationCap className="w-3.5 h-3.5" aria-hidden="true" />
             Academics
@@ -140,15 +140,15 @@ export const About: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-xl p-6 border border-slate-800/80 hover:border-blue-500/30 transition-all"
+                className="glass-card rounded-xl p-6 border border-[#DCE7F2] hover:border-[#0EA5C6]/30 transition-all"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-900/40 to-indigo-900/40 border border-blue-700/30 flex items-center justify-center mb-4 text-blue-400">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EEF6FF] to-[#EEF6FF]/40 border border-[#DCE7F2] flex items-center justify-center mb-4 text-[#0EA5C6]">
                   <Icon className="w-5 h-5" />
                 </div>
-                <h4 className="text-base font-bold text-white font-display mb-2">
+                <h4 className="text-base font-bold text-[#0F172A] font-display mb-2">
                   {pillar.title}
                 </h4>
-                <p className="text-sm text-slate-400 leading-relaxed">
+                <p className="text-sm text-[#64748B] leading-relaxed">
                   {pillar.description}
                 </p>
               </div>

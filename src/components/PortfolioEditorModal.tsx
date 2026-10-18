@@ -115,22 +115,22 @@ export const PortfolioEditorModal: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#0F172A]/40 backdrop-blur-md animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-4xl bg-[#09142b] border border-blue-500/30 rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col text-slate-200"
+        className="relative w-full max-w-4xl bg-white border border-[#0EA5C6]/30 rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col text-[#1E293B]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-[#0c1a38]">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#DCE7F2] bg-white">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400">
+            <div className="w-8 h-8 rounded-lg bg-[#0EA5C6]/10 border border-[#0EA5C6]/40 flex items-center justify-center text-[#0EA5C6]">
               <Sliders className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-white font-display">
+              <h3 className="text-base font-bold text-[#0F172A] font-display">
                 Portfolio Editor & Image Studio
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-[#64748B]">
                 Customize profile photo, personal information, skills, and project details live
               </p>
             </div>
@@ -138,7 +138,7 @@ export const PortfolioEditorModal: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsEditorOpen(false)}
-            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-[#64748B] hover:text-[#0284C7] hover:bg-[#EEF6FF] rounded-lg transition-colors cursor-pointer"
             aria-label="Close editor"
           >
             <X className="w-5 h-5" />
@@ -146,14 +146,14 @@ export const PortfolioEditorModal: React.FC = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-1 px-6 pt-3 border-b border-slate-800/80 bg-[#09142b] overflow-x-auto">
+        <div className="flex items-center gap-1 px-6 pt-3 border-b border-[#DCE7F2] bg-white overflow-x-auto">
           <button
             type="button"
             onClick={() => setActiveEditorTab('photo')}
             className={`px-4 py-2.5 text-xs font-semibold rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeEditorTab === 'photo'
-                ? 'bg-[#0f2147] text-blue-300 border-t-2 border-blue-500'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#EEF6FF] text-[#0284C7] border-t-2 border-[#0EA5C6]'
+                : 'text-[#64748B] hover:text-[#0284C7]'
             }`}
           >
             <ImageIcon className="w-4 h-4" />
@@ -165,8 +165,8 @@ export const PortfolioEditorModal: React.FC = () => {
             onClick={() => setActiveEditorTab('profile')}
             className={`px-4 py-2.5 text-xs font-semibold rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeEditorTab === 'profile'
-                ? 'bg-[#0f2147] text-blue-300 border-t-2 border-blue-500'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#EEF6FF] text-[#0284C7] border-t-2 border-[#0EA5C6]'
+                : 'text-[#64748B] hover:text-[#0284C7]'
             }`}
           >
             <User className="w-4 h-4" />
@@ -178,8 +178,8 @@ export const PortfolioEditorModal: React.FC = () => {
             onClick={() => setActiveEditorTab('skills')}
             className={`px-4 py-2.5 text-xs font-semibold rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeEditorTab === 'skills'
-                ? 'bg-[#0f2147] text-blue-300 border-t-2 border-blue-500'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#EEF6FF] text-[#0284C7] border-t-2 border-[#0EA5C6]'
+                : 'text-[#64748B] hover:text-[#0284C7]'
             }`}
           >
             <Sliders className="w-4 h-4" />
@@ -191,8 +191,8 @@ export const PortfolioEditorModal: React.FC = () => {
             onClick={() => setActiveEditorTab('project')}
             className={`px-4 py-2.5 text-xs font-semibold rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap cursor-pointer ${
               activeEditorTab === 'project'
-                ? 'bg-[#0f2147] text-blue-300 border-t-2 border-blue-500'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#EEF6FF] text-[#0284C7] border-t-2 border-[#0EA5C6]'
+                : 'text-[#64748B] hover:text-[#0284C7]'
             }`}
           >
             <Rocket className="w-4 h-4" />
@@ -210,11 +210,11 @@ export const PortfolioEditorModal: React.FC = () => {
               {/* Left Column: Dropzone and controls */}
               <div className="md:col-span-7 space-y-5">
                 <div>
-                  <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-1">
+                  <h4 className="text-sm font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                     Upload Your Portrait Photo
                   </h4>
-                  <p className="text-xs text-slate-400">
-                    Upload your real portrait (e.g. <code className="text-blue-300 font-mono">meeeeeeeee.jpeg</code>). It will immediately display in the hero section and persist across visits.
+                  <p className="text-xs text-[#64748B]">
+                    Upload your real portrait (e.g. <code className="text-[#0284C7] font-mono">meeeeeeeee.jpeg</code>). It will immediately display in the hero section and persist across visits.
                   </p>
                 </div>
 
@@ -227,8 +227,8 @@ export const PortfolioEditorModal: React.FC = () => {
                   onClick={() => fileInputRef.current?.click()}
                   className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-all duration-200 ${
                     dragActive
-                      ? 'border-blue-400 bg-blue-600/20'
-                      : 'border-slate-700 hover:border-blue-500/50 bg-slate-900/60'
+                      ? 'border-[#0EA5C6] bg-[#0EA5C6]/10'
+                      : 'border-[#DCE7F2] hover:border-[#0EA5C6]/50 bg-white/60'
                   }`}
                 >
                   <input
@@ -242,26 +242,26 @@ export const PortfolioEditorModal: React.FC = () => {
                     }}
                     className="hidden"
                   />
-                  <div className="w-12 h-12 rounded-xl bg-blue-950/70 border border-blue-700/40 text-blue-400 flex items-center justify-center mx-auto mb-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#0EA5C6]/10 border border-[#DCE7F2] text-[#0EA5C6] flex items-center justify-center mx-auto mb-3">
                     <Upload className="w-6 h-6" />
                   </div>
-                  <p className="text-sm font-semibold text-white mb-1">
+                  <p className="text-sm font-semibold text-[#0F172A] mb-1">
                     Click to browse or drag and drop image here
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-[#64748B]">
                     Supports JPG, PNG, WEBP (Recommended: vertical 3:4 portrait)
                   </p>
                 </div>
 
                 {/* Adjustments: Zoom and Position */}
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-4">
+                <div className="p-4 rounded-xl bg-white/80 border border-[#DCE7F2] space-y-4">
                   <div>
                     <div className="flex justify-between items-center text-xs mb-1.5 font-data">
-                      <span className="flex items-center gap-1.5 text-slate-300">
-                        <ZoomIn className="w-3.5 h-3.5 text-blue-400" />
+                      <span className="flex items-center gap-1.5 text-[#475569]">
+                        <ZoomIn className="w-3.5 h-3.5 text-[#0EA5C6]" />
                         <span>Scale / Zoom</span>
                       </span>
-                      <span className="text-blue-400 font-bold">{Math.round(formData.photoZoom * 100)}%</span>
+                      <span className="text-[#0EA5C6] font-bold">{Math.round(formData.photoZoom * 100)}%</span>
                     </div>
                     <input
                       type="range"
@@ -274,17 +274,17 @@ export const PortfolioEditorModal: React.FC = () => {
                         setFormData((prev) => ({ ...prev, photoZoom: val }));
                         updateData({ photoZoom: val });
                       }}
-                      className="w-full accent-blue-500 cursor-pointer"
+                      className="w-full accent-[#0EA5C6] cursor-pointer"
                     />
                   </div>
 
                   <div>
                     <div className="flex justify-between items-center text-xs mb-1.5 font-data">
-                      <span className="flex items-center gap-1.5 text-slate-300">
-                        <MoveVertical className="w-3.5 h-3.5 text-cyan-400" />
+                      <span className="flex items-center gap-1.5 text-[#475569]">
+                        <MoveVertical className="w-3.5 h-3.5 text-[#14B8A6]" />
                         <span>Vertical Position Alignment</span>
                       </span>
-                      <span className="text-cyan-400 font-bold">{formData.photoOffsetY}px</span>
+                      <span className="text-[#14B8A6] font-bold">{formData.photoOffsetY}px</span>
                     </div>
                     <input
                       type="range"
@@ -312,7 +312,7 @@ export const PortfolioEditorModal: React.FC = () => {
                       setFormData((prev) => ({ ...prev, photoUrl: defaultImg, photoZoom: 1, photoOffsetY: 0 }));
                       triggerToast();
                     }}
-                    className="px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
+                    className="px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#EEF6FF] hover:bg-[#DCE7F2] text-[#475569] hover:text-[#0284C7] transition-colors cursor-pointer flex items-center gap-1.5"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
                     <span>Reset Photo Defaults</span>
@@ -322,12 +322,12 @@ export const PortfolioEditorModal: React.FC = () => {
 
               {/* Right Column: Live Frame Preview */}
               <div className="md:col-span-5 flex flex-col items-center justify-center">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                <p className="text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-3">
                   Live Hero Frame Preview
                 </p>
                 <div className="relative group">
-                  <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400 rounded-3xl blur-xl opacity-75" />
-                  <div className="relative w-48 sm:w-56 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-blue-400/40 bg-[#081226] shadow-2xl">
+                  <div className="absolute -inset-1.5 bg-gradient-to-r from-[#0EA5C6] via-[#0EA5C6] to-[#14B8A6] rounded-3xl blur-xl opacity-75" />
+                  <div className="relative w-48 sm:w-56 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#0EA5C6]/40 bg-white shadow-2xl">
                     <img
                       src={formData.photoUrl}
                       alt="Portrait preview"
@@ -337,10 +337,10 @@ export const PortfolioEditorModal: React.FC = () => {
                       }}
                       className="w-full h-full object-cover object-top transition-transform duration-100"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#050b18]/90 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-2 left-2 right-2 p-2 rounded-lg bg-slate-900/80 backdrop-blur-sm border border-blue-500/20 text-center">
-                      <p className="text-[11px] font-bold text-white truncate">{formData.name}</p>
-                      <p className="text-[9px] text-blue-300 truncate">{formData.subheading}</p>
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#F8FAFC]/90 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-2 left-2 right-2 p-2 rounded-lg bg-white/80 backdrop-blur-sm border border-[#0EA5C6]/20 text-center">
+                      <p className="text-[11px] font-bold text-[#0F172A] truncate">{formData.name}</p>
+                      <p className="text-[9px] text-[#0284C7] truncate">{formData.subheading}</p>
                     </div>
                   </div>
                 </div>
@@ -354,98 +354,98 @@ export const PortfolioEditorModal: React.FC = () => {
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Full Name
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Subheading / Professional Title
                   </label>
                   <input
                     type="text"
                     value={formData.subheading}
                     onChange={(e) => setFormData({ ...formData, subheading: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Department & Degree
                   </label>
                   <input
                     type="text"
                     value={formData.department}
                     onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Age
                   </label>
                   <input
                     type="number"
                     value={formData.age}
                     onChange={(e) => setFormData({ ...formData, age: parseInt(e.target.value, 10) || 19 })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Contact Email Address
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Career Goal
                   </label>
                   <input
                     type="text"
                     value={formData.careerGoal}
                     onChange={(e) => setFormData({ ...formData, careerGoal: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Hero Section Short Description
                   </label>
                   <textarea
                     rows={2}
                     value={formData.heroDescription}
                     onChange={(e) => setFormData({ ...formData, heroDescription: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none resize-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none resize-none"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     About Section Introduction
                   </label>
                   <textarea
                     rows={3}
                     value={formData.aboutIntro}
                     onChange={(e) => setFormData({ ...formData, aboutIntro: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none resize-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none resize-none"
                   />
                 </div>
               </div>
@@ -456,23 +456,23 @@ export const PortfolioEditorModal: React.FC = () => {
           {activeEditorTab === 'skills' && (
             <div className="space-y-5">
               <div>
-                <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-1">
+                <h4 className="text-sm font-bold text-[#0F172A] uppercase tracking-wider mb-1">
                   Adjust Skill Proficiency Levels
                 </h4>
-                <p className="text-xs text-slate-400">
+                <p className="text-xs text-[#64748B]">
                   Slide to adjust the percentage displayed across your technical cards in real-time.
                 </p>
               </div>
 
               <div className="space-y-4">
                 {formData.skills.map((skill) => (
-                  <div key={skill.id} className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+                  <div key={skill.id} className="p-4 rounded-xl bg-white/80 border border-[#DCE7F2] space-y-2">
                     <div className="flex justify-between items-center text-xs">
                       <div>
-                        <span className="font-bold text-white text-sm font-display">{skill.name}</span>
-                        <span className="text-slate-400 ml-2">({skill.level})</span>
+                        <span className="font-bold text-[#0F172A] text-sm font-display">{skill.name}</span>
+                        <span className="text-[#64748B] ml-2">({skill.level})</span>
                       </div>
-                      <span className="text-blue-400 font-bold font-data text-sm tabular-nums">
+                      <span className="text-[#0EA5C6] font-bold font-data text-sm tabular-nums">
                         {skill.proficiency}%
                       </span>
                     </div>
@@ -489,9 +489,9 @@ export const PortfolioEditorModal: React.FC = () => {
                         setFormData({ ...formData, skills: updatedSkills });
                         updateSkillProficiency(skill.id, val);
                       }}
-                      className="w-full accent-blue-500 cursor-pointer"
+                      className="w-full accent-[#0EA5C6] cursor-pointer"
                     />
-                    <p className="text-[11px] text-slate-400 leading-normal">{skill.description}</p>
+                    <p className="text-[11px] text-[#64748B] leading-normal">{skill.description}</p>
                   </div>
                 ))}
               </div>
@@ -503,73 +503,73 @@ export const PortfolioEditorModal: React.FC = () => {
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Project Title
                   </label>
                   <input
                     type="text"
                     value={formData.projectTitle}
                     onChange={(e) => setFormData({ ...formData, projectTitle: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Project Subtitle
                   </label>
                   <input
                     type="text"
                     value={formData.projectSubtitle}
                     onChange={(e) => setFormData({ ...formData, projectSubtitle: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Records Analyzed
                   </label>
                   <input
                     type="text"
                     value={formData.projectRecords}
                     onChange={(e) => setFormData({ ...formData, projectRecords: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none font-data"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none font-data"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Best Model Test Accuracy
                   </label>
                   <input
                     type="text"
                     value={formData.projectAccuracy}
                     onChange={(e) => setFormData({ ...formData, projectAccuracy: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none font-data"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none font-data"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Data Period Covered
                   </label>
                   <input
                     type="text"
                     value={formData.projectDataPeriod}
                     onChange={(e) => setFormData({ ...formData, projectDataPeriod: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none font-data"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none font-data"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
                     Final Activity Prediction
                   </label>
                   <select
                     value={formData.projectPrediction}
                     onChange={(e) => setFormData({ ...formData, projectPrediction: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:border-blue-500 focus:outline-none font-data"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none font-data"
                   >
                     <option value="Low">Low Activity</option>
                     <option value="Moderate">Moderate Activity</option>
@@ -583,17 +583,17 @@ export const PortfolioEditorModal: React.FC = () => {
         </div>
 
         {/* Modal Bottom Bar */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-slate-800 bg-[#070e22]">
+        <div className="flex items-center justify-between px-6 py-4 border-t border-[#DCE7F2] bg-white">
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={handleResetToDefault}
-              className="px-3.5 py-2 text-xs font-medium text-slate-400 hover:text-rose-300 hover:bg-rose-950/30 rounded-lg transition-colors cursor-pointer"
+              className="px-3.5 py-2 text-xs font-medium text-[#64748B] hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
             >
               Reset All Defaults
             </button>
             {saveToast && (
-              <span className="text-xs text-emerald-400 font-medium flex items-center gap-1.5 animate-in fade-in">
+              <span className="text-xs text-emerald-600 font-medium flex items-center gap-1.5 animate-in fade-in">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Changes saved!</span>
               </span>
@@ -604,14 +604,14 @@ export const PortfolioEditorModal: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsEditorOpen(false)}
-              className="px-4 py-2 text-xs font-medium text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="px-4 py-2 text-xs font-medium text-[#64748B] hover:text-[#0284C7] transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={handleSaveAll}
-              className="px-5 py-2 text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-lg shadow-md transition-colors flex items-center gap-1.5 cursor-pointer"
+              className="btn-primary px-5 py-2 text-xs font-semibold text-white bg-[#0EA5C6] hover:bg-[#0284C7] rounded-lg shadow-md transition-colors flex items-center gap-1.5 cursor-pointer"
             >
               <Check className="w-4 h-4" />
               <span>Apply & Save</span>

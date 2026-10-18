@@ -27,13 +27,13 @@ export const Hero: React.FC = () => {
       className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden"
     >
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[28rem] h-[28rem] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0EA5C6]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[28rem] h-[28rem] bg-[#14B8A6]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-[#14B8A6]/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Subtle data grid overlay */}
       <div
-        className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b12_1px,transparent_1px),linear-gradient(to_bottom,#1e293b12_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none"
+        className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a0a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a0a_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -43,26 +43,26 @@ export const Hero: React.FC = () => {
           <div className="flex-1 text-center lg:text-left space-y-6">
             
             {/* Department kicker */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/60 border border-blue-800/40 text-blue-300 text-xs sm:text-sm font-medium shadow-inner shadow-blue-500/10">
-              <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0EA5C6]/10 border border-[#DCE7F2] text-[#0284C7] text-xs sm:text-sm font-medium shadow-inner shadow-[#0EA5C6]/10">
+              <Sparkles className="w-4 h-4 text-[#14B8A6] animate-pulse" />
               <span>{data.department}</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white font-display tracking-tight leading-[1.1] text-balance">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0F172A] font-display tracking-tight leading-[1.1] text-balance">
               Hi, I’m{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#0284C7] via-[#0EA5C6] to-[#14B8A6] bg-clip-text text-transparent">
                 {data.name}
               </span>
             </h1>
 
             {/* Subheading */}
-            <h2 className="text-xl sm:text-2xl font-semibold text-slate-200 font-display">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#1E293B] font-display">
               {data.subheading}
             </h2>
 
             {/* Short Description */}
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+            <p className="text-[#475569] text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
               {data.heroDescription}
             </p>
 
@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
               <a
                 href="#project"
                 onClick={(e) => scrollToSection(e, '#project')}
-                className="px-6 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 rounded-xl shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 transition-all duration-200 active:scale-95 flex items-center gap-2 group cursor-pointer"
+                className="btn-primary px-6 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#0EA5C6] to-[#0EA5C6] hover:from-[#0284C7] hover:to-[#0284C7] rounded-xl shadow-lg shadow-[#0EA5C6]/25 hover:shadow-[#0284C7]/30 transition-all duration-200 active:scale-95 flex items-center gap-2 group cursor-pointer"
               >
                 <span>View My Project</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -80,25 +80,25 @@ export const Hero: React.FC = () => {
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
-                className="px-6 py-3.5 text-sm font-semibold text-slate-200 hover:text-white bg-slate-900/80 hover:bg-slate-800/80 border border-slate-700/60 hover:border-blue-500/50 rounded-xl shadow-sm transition-all duration-200 active:scale-95 flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 text-sm font-semibold text-[#1E293B] hover:text-[#0284C7] bg-white/80 hover:bg-[#EEF6FF]/80 border border-[#DCE7F2] hover:border-[#0EA5C6]/50 rounded-xl shadow-sm transition-all duration-200 active:scale-95 flex items-center gap-2 cursor-pointer"
               >
-                <Mail className="w-4 h-4 text-blue-400" />
+                <Mail className="w-4 h-4 text-[#0EA5C6]" />
                 <span>Contact Me</span>
               </a>
             </div>
 
             {/* Quick trust metrics row */}
-            <div className="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-data">
+            <div className="pt-6 border-t border-[#DCE7F2] flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#64748B] font-data">
               <div className="flex items-center gap-2">
-                <Brain className="w-4 h-4 text-blue-400" />
+                <Brain className="w-4 h-4 text-[#0EA5C6]" />
                 <span>Machine Learning & Modeling</span>
               </div>
               <div className="flex items-center gap-2">
-                <Database className="w-4 h-4 text-cyan-400" />
+                <Database className="w-4 h-4 text-[#14B8A6]" />
                 <span>Data Analysis & Python</span>
               </div>
               <div className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-indigo-400" />
+                <Cpu className="w-4 h-4 text-[#0284C7]" />
                 <span>Algorithms & Systems</span>
               </div>
             </div>
@@ -109,11 +109,11 @@ export const Hero: React.FC = () => {
             <div className="relative group">
               
               {/* Outer subtle electric blue & purple ambient glow */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-400 rounded-3xl blur-xl opacity-60 group-hover:opacity-85 transition-opacity duration-500" />
-              <div className="absolute -inset-0.5 bg-gradient-to-b from-blue-500/30 to-indigo-500/20 rounded-3xl pointer-events-none" />
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#0EA5C6] via-[#0EA5C6] to-[#14B8A6] rounded-3xl blur-xl opacity-60 group-hover:opacity-85 transition-opacity duration-500" />
+              <div className="absolute -inset-0.5 bg-gradient-to-b from-[#0EA5C6]/30 to-[#14B8A6]/20 rounded-3xl pointer-events-none" />
 
               {/* Polished portrait container with rounded frame, subtle blue glow, and responsive crop */}
-              <div className="relative w-64 sm:w-72 md:w-80 lg:w-[22rem] aspect-[3/4] rounded-2xl overflow-hidden border-2 border-blue-400/30 bg-[#081226] shadow-2xl shadow-blue-950/60">
+              <div className="relative w-64 sm:w-72 md:w-80 lg:w-[22rem] aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[#0EA5C6]/30 bg-white shadow-2xl shadow-slate-300/50">
                 <img
                   src={currentPhoto}
                   alt="Professional portrait of Hareesharraj"
@@ -129,16 +129,16 @@ export const Hero: React.FC = () => {
                 />
 
                 {/* Subtle bottom gradient scrim for contrast */}
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#050b18]/90 via-[#050b18]/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#F8FAFC]/90 via-[#F8FAFC]/40 to-transparent pointer-events-none" />
 
                 {/* Name & status badge over image bottom */}
-                <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-slate-900/80 backdrop-blur-md border border-blue-500/20 text-left">
+                <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-white/80 backdrop-blur-md border border-[#0EA5C6]/20 text-left">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-bold text-white font-display tracking-wide">
+                      <p className="text-xs font-bold text-[#0F172A] font-display tracking-wide">
                         {data.name}
                       </p>
-                      <p className="text-[11px] text-blue-300 font-medium">
+                      <p className="text-[11px] text-[#0284C7] font-medium">
                         {data.department} · Age {data.age}
                       </p>
                     </div>

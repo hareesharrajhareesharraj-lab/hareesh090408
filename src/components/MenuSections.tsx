@@ -51,7 +51,7 @@ export const MenuSection: React.FC<{ section: SectionKey }> = ({ section }) => {
             aria-expanded={open}
             aria-controls={panelId}
             title={summary}
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-900/40 hover:from-blue-500 hover:to-indigo-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+            className="btn-primary group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0EA5C6] to-[#0EA5C6] px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-300/50 hover:from-[#0284C7] hover:to-[#0284C7] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0EA5C6]"
           >
             <Icon className="w-4 h-4" aria-hidden="true" />
             {label}
@@ -79,7 +79,7 @@ export const MenuSection: React.FC<{ section: SectionKey }> = ({ section }) => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -60, opacity: 0 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="mt-6 glass-panel rounded-2xl border border-blue-900/30 shadow-xl overflow-hidden"
+                className="mt-6 glass-panel rounded-2xl border border-[#DCE7F2] shadow-xl overflow-hidden"
               >
                 <Content />
               </motion.div>
