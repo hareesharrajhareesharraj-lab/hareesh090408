@@ -9,7 +9,7 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Skills } from './components/Skills';
 import { FeaturedProject } from './components/FeaturedProject';
-import { MenuSections } from './components/MenuSections';
+import { MenuSection } from './components/MenuSections';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ParticleBackground } from './components/ParticleBackground';
@@ -19,7 +19,7 @@ function PortfolioContent() {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    const sections = ['home', 'about', 'skills', 'project', 'menu', 'contact'];
+    const sections = ['home', 'about', 'skills', 'project', 'contact'];
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -54,9 +54,10 @@ function PortfolioContent() {
       <main className="relative z-10">
         <Hero />
         <About />
+        <MenuSection section="academics" />
         <Skills />
         <FeaturedProject />
-        <MenuSections />
+        <MenuSection section="blog" />
         <Contact />
       </main>
 
