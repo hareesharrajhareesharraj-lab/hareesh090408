@@ -42,8 +42,32 @@ function PortfolioContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('main > section'));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    targets.forEach((el) => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#050b18] text-slate-100 relative selection:bg-blue-600/40 selection:text-white">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] relative selection:bg-[#0EA5C6]/40 selection:text-[#0F172A]">
       {/* Background AI/Data science network simulation */}
       <ParticleBackground />
 

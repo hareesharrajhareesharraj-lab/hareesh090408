@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+const PARTICLE_COUNT = 14;
+
 export const ParticleBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -10,106 +12,85 @@ export const ParticleBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let animationFrameId = 0;
+
+    const resize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+
+    const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.12,
+      vy: -(Math.random() * 0.12 + 0.04),
+      radius: Math.random() * 1.2 + 1,
+      alpha: Math.random() * 0.25 + 0.2,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(20, 184, 166, ${p.alpha})`;
+        ctx.fill();
+      }
+    };
+
+    const step = () => {
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -10) p.x = width + 10;
+        if (p.x > width + 10) p.x = -10;
+        if (p.y < -10) p.y = height + 10;
+      }
+      draw();
+      animationFrameId = requestAnimationFrame(step);
+    };
+
+    const start = () => {
+      cancelAnimationFrame(animationFrameId);
+      if (reducedMotion.matches) {
+        draw();
+      } else {
+        animationFrameId = requestAnimationFrame(step);
+      }
+    };
 
     const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      resize();
+      if (reducedMotion.matches) draw();
     };
 
     window.addEventListener('resize', handleResize);
-
-    // Particle nodes for data science network
-    const particleCount = Math.min(Math.floor((width * height) / 22000), 55);
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      color: string;
-      alpha: number;
-    }> = [];
-
-    const colors = [
-      'rgba(59, 130, 246, ',   // blue
-      'rgba(99, 102, 241, ',   // indigo
-      'rgba(6, 182, 212, ',    // cyan
-    ];
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 1.5 + 0.8,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        alpha: Math.random() * 0.35 + 0.15,
-      });
-    }
-
-    const maxDist = 130;
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw connecting lines
-      for (let i = 0; i < particles.length; i++) {
-        const p1 = particles[i];
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < maxDist) {
-            const lineAlpha = (1 - dist / maxDist) * 0.12;
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(96, 165, 250, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw and move particles
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${p.alpha})`;
-        ctx.fill();
-      }
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
+    reducedMotion.addEventListener('change', start);
+    start();
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      reducedMotion.removeEventListener('change', start);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-60"
-    />
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <div className="ambient-glow ambient-glow--blue" />
+      <div className="ambient-glow ambient-glow--teal" />
+      <div className="ambient-glow ambient-glow--sky" />
+      <canvas ref={canvasRef} className="absolute inset-0" />
+    </div>
   );
 };

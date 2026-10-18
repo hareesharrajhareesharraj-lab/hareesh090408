@@ -16,24 +16,24 @@ export const Academic: React.FC = () => {
     <section id="academics" className="py-20 relative scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="text-center max-w-3xl mx-auto mb-14">
-        <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-blue-400 tracking-wider uppercase mb-2">
+        <div className="flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0EA5C6] tracking-wider uppercase mb-2">
           <GraduationCap className="w-4 h-4" aria-hidden="true" />
           Education
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
           Academics
         </h2>
-        <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto mt-4 rounded-full" />
+        <div className="w-12 h-1 bg-gradient-to-r from-[#0EA5C6] to-[#14B8A6] mx-auto mt-4 rounded-full" />
       </div>
 
-      <article className="glass-panel rounded-2xl overflow-hidden border border-blue-900/30 shadow-xl flex flex-col md:flex-row">
+      <article className="glass-panel rounded-2xl overflow-hidden border border-[#DCE7F2] shadow-xl flex flex-col md:flex-row">
         <div className="relative md:w-2/5 h-48 md:h-auto">
           <img
             src="/mamce.jpg"
             alt="Entrance gate of M.A.M. College of Engineering"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 to-transparent md:bg-gradient-to-r" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/30 to-transparent md:bg-gradient-to-r" />
         </div>
 
         <div className="flex-1 p-6 sm:p-8">
@@ -46,30 +46,30 @@ export const Academic: React.FC = () => {
               />
             </div>
             <div>
-              <h4 className="text-lg sm:text-xl font-bold text-white font-display leading-snug">
+              <h4 className="text-lg sm:text-xl font-bold text-[#0F172A] font-display leading-snug">
                 {academic.institution}
               </h4>
-              <p className="text-sm text-blue-300 font-medium">{academic.degree}</p>
+              <p className="text-sm text-[#0284C7] font-medium">{academic.degree}</p>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3 mb-5">
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1">
-              <Calendar className="w-3.5 h-3.5 text-indigo-400" aria-hidden="true" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#475569] bg-[#EEF6FF]/60 border border-[#DCE7F2] rounded-full px-3 py-1">
+              <Calendar className="w-3.5 h-3.5 text-[#0284C7]" aria-hidden="true" />
               {academic.period}
             </span>
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 bg-slate-800/60 border border-slate-700 rounded-full px-3 py-1">
-              <Star className="w-3.5 h-3.5 text-cyan-400" aria-hidden="true" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#475569] bg-[#EEF6FF]/60 border border-[#DCE7F2] rounded-full px-3 py-1">
+              <Star className="w-3.5 h-3.5 text-[#14B8A6]" aria-hidden="true" />
               Grade: {academic.grade}
             </span>
           </div>
 
-          <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-5">
+          <p className="text-sm sm:text-base text-[#64748B] leading-relaxed mb-5">
             {academic.description}
           </p>
 
           <div>
-            <p className="flex items-center gap-1.5 text-xs font-medium text-slate-400 uppercase tracking-wider mb-2">
+            <p className="flex items-center gap-1.5 text-xs font-medium text-[#64748B] uppercase tracking-wider mb-2">
               <Users className="w-3.5 h-3.5" aria-hidden="true" />
               Activities and societies
             </p>
@@ -77,7 +77,7 @@ export const Academic: React.FC = () => {
               {academic.activities.map((activity) => (
                 <li
                   key={activity}
-                  className="text-xs font-semibold text-blue-300 bg-blue-950/50 border border-blue-800/40 rounded-md px-2.5 py-1"
+                  className="text-xs font-semibold text-[#0284C7] bg-[#0EA5C6]/10 border border-[#DCE7F2] rounded-md px-2.5 py-1"
                 >
                   {activity}
                 </li>
