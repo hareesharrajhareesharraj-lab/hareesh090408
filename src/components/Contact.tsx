@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Copy, Check, Sparkles, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Mail, Send, Copy, Check, Sparkles, MessageSquare, ArrowUpRight, Linkedin } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
 
 export const Contact: React.FC = () => {
@@ -109,6 +109,25 @@ export const Contact: React.FC = () => {
                   </p>
                 )}
               </div>
+
+              <a
+                href="https://www.linkedin.com/in/hareesharraj-udayakumar090408"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-3 p-4 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-blue-500/60 transition-colors"
+              >
+                <div className="min-w-0 space-y-1">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    <Linkedin className="w-4 h-4 text-blue-400" aria-hidden="true" />
+                    <span>LinkedIn</span>
+                  </div>
+                  <p className="text-sm font-medium text-blue-300 group-hover:text-white transition-colors truncate font-data">
+                    in/hareesharraj-udayakumar090408
+                  </p>
+                </div>
+                <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white shrink-0 transition-colors" aria-hidden="true" />
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
 
               {/* Status details */}
               <div className="space-y-3 pt-2 text-xs text-slate-400 font-data border-t border-slate-800/80">
