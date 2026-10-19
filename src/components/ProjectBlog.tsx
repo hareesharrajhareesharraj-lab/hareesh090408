@@ -98,6 +98,15 @@ export const ProjectBlog: React.FC = () => {
 
         {/* Detailed Abstract Card */}
         <div className="glass-panel rounded-3xl p-6 sm:p-8 md:p-10 border border-[#DCE7F2] mb-12 shadow-2xl relative">
+          <figure className="mb-8 overflow-hidden rounded-2xl border border-[#DCE7F2] bg-[#0F172A]">
+            <img
+              src="/solar-magnetosphere.jpg"
+              alt="Solar wind from the Sun interacting with a planet's magnetic field lines"
+              className="w-full aspect-[16/9] object-cover"
+              loading="lazy"
+            />
+          </figure>
+
           <div className="flex items-center gap-2.5 mb-6 text-[#0EA5C6]">
             <Flame className="w-5 h-5 text-amber-600" />
             <span className="text-xs font-bold uppercase tracking-wider text-[#475569]">

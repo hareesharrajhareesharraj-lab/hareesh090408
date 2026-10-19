@@ -61,6 +61,12 @@ export const AbstractModal: React.FC<AbstractModalProps> = ({
 
         {/* Content */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-[#475569] text-sm sm:text-base leading-relaxed">
+          <img
+            src="/solar-magnetosphere.jpg"
+            alt="Solar wind from the Sun interacting with a planet's magnetic field lines"
+            className="w-full aspect-[16/9] object-cover rounded-xl border border-[#DCE7F2] bg-[#0F172A]"
+          />
+
           <div className="p-4 rounded-xl bg-[#0EA5C6]/10 border border-[#DCE7F2] text-[#0369A1] text-xs sm:text-sm font-data flex items-center justify-between flex-wrap gap-2">
             <span>NASA OMNI Space-Environment Dataset</span>
             <span>8,776 Records · 23 Columns</span>
