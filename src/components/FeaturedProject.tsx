@@ -77,6 +77,16 @@ export const FeaturedProject: React.FC = () => {
 
         <div className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#DCE7F2] mb-12 shadow-2xl relative overflow-hidden">
           <div className="space-y-6">
+            <figure className="rounded-2xl overflow-hidden border border-[#DCE7F2] shadow-lg bg-[#0B1220]">
+              <img
+                src="/solar-magnetosphere.jpg"
+                alt="The Sun releasing solar wind toward a planet surrounded by blue magnetic field lines of its magnetosphere"
+                className="w-full h-56 sm:h-72 lg:h-80 object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0EA5C6]/10 border border-[#DCE7F2] text-[#0369A1] text-xs font-data">
               <Sparkles className="w-3.5 h-3.5 text-[#0F766E]" aria-hidden="true" />
               <span>NASA OMNI Heliophysics & Space Weather Study</span>
