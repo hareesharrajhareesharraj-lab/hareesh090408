@@ -65,13 +65,13 @@ export const ProjectBlog: React.FC = () => {
   ];
 
   return (
-    <section id="blog" className="py-20 relative">
+    <section id="blog-content" aria-label="Project blog" className="py-20 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="text-xs font-semibold text-[#0EA5C6] tracking-wider uppercase mb-2">
-            04 · Technical Publication & Case Study
+            Technical Publication & Case Study
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
             Project Blog: Solar Activity Detection

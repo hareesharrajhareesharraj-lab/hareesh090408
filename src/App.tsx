@@ -21,20 +21,24 @@ function PortfolioContent() {
   useEffect(() => {
     const sections = ['home', 'about', 'skills', 'project', 'contact'];
 
+    const NAV_OFFSET = 120;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      if (atBottom) {
+        setActiveSection('contact');
+        return;
+      }
 
       for (let i = sections.length - 1; i >= 0; i--) {
-        const sectionId = sections[i];
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          if (scrollPosition >= offsetTop) {
-            setActiveSection(sectionId);
-            break;
-          }
+        const element = document.getElementById(sections[i]);
+        if (element && element.getBoundingClientRect().top <= NAV_OFFSET) {
+          setActiveSection(sections[i]);
+          return;
         }
       }
+      setActiveSection('home');
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

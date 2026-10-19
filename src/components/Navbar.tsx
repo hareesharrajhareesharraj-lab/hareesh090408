@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { scrollToId } from '../lib/motion';
 
 interface NavbarProps {
   activeSection: string;
@@ -21,18 +22,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
-    { label: 'Project', href: '#project' },
-    { label: 'Blog', href: '#blog' },
+    { label: 'Projects', href: '#project' },
     { label: 'Contact', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToId(href);
+    history.replaceState(null, '', href);
   };
 
   return (
@@ -69,16 +67,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           </a>
 
           {/* Zone 2: 6 clean single-line nav links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#475569]">
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm font-medium text-[#334155]">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a
                   key={link.label}
                   href={link.href}
+                  aria-current={isActive ? 'location' : undefined}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative py-1 whitespace-nowrap shrink-0 transition-colors ${
-                    isActive ? 'text-[#0EA5C6] font-semibold' : 'hover:text-[#0284C7]'
+                    isActive ? 'text-[#0284C7] font-semibold' : 'hover:text-[#0284C7]'
                   }`}
                 >
                   {link.label}
@@ -106,8 +105,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#475569] hover:text-[#0284C7] hover:bg-[#EEF6FF]/60 rounded-lg transition-colors focus:outline-none"
-            aria-label="Toggle navigation menu"
+            className="md:hidden p-2 text-[#475569] hover:text-[#0284C7] hover:bg-[#EEF6FF]/60 rounded-lg transition-colors"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -116,14 +117,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-[#DCE7F2] px-6 py-5 shadow-2xl space-y-3">
-          <nav className="flex flex-col space-y-2">
+        <div id="mobile-nav" className="md:hidden bg-white border-b border-[#DCE7F2] px-6 py-5 shadow-2xl space-y-3">
+          <nav aria-label="Mobile" className="flex flex-col space-y-2">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a
                   key={link.label}
                   href={link.href}
+                  aria-current={isActive ? 'location' : undefined}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`px-3 py-2 text-base font-medium rounded-lg transition-colors ${
                     isActive
