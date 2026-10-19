@@ -13,13 +13,13 @@ import {
   MoveVertical,
   CheckCircle2
 } from 'lucide-react';
-import { usePortfolio } from '../context/PortfolioContext';
+import { usePortfolio, type SkillLevel } from '../context/PortfolioContext';
 
 export const PortfolioEditorModal: React.FC = () => {
   const {
     data,
     updateData,
-    updateSkillProficiency,
+    updateSkillLevel,
     updatePhoto,
     resetAll,
     isEditorOpen,
@@ -391,12 +391,12 @@ export const PortfolioEditorModal: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1.5">
-                    Age
+                    Availability
                   </label>
                   <input
-                    type="number"
-                    value={formData.age}
-                    onChange={(e) => setFormData({ ...formData, age: parseInt(e.target.value, 10) || 19 })}
+                    type="text"
+                    value={formData.availability}
+                    onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-white/90 border border-[#DCE7F2] text-[#0F172A] text-sm focus:border-[#0EA5C6] focus:outline-none"
                   />
                 </div>
@@ -457,40 +457,36 @@ export const PortfolioEditorModal: React.FC = () => {
             <div className="space-y-5">
               <div>
                 <h4 className="text-sm font-bold text-[#0F172A] uppercase tracking-wider mb-1">
-                  Adjust Skill Proficiency Levels
+                  Adjust Skill Levels
                 </h4>
                 <p className="text-xs text-[#64748B]">
-                  Slide to adjust the percentage displayed across your technical cards in real-time.
+                  Choose the level label shown on each skill card.
                 </p>
               </div>
 
               <div className="space-y-4">
                 {formData.skills.map((skill) => (
                   <div key={skill.id} className="p-4 rounded-xl bg-white/80 border border-[#DCE7F2] space-y-2">
-                    <div className="flex justify-between items-center text-xs">
-                      <div>
-                        <span className="font-bold text-[#0F172A] text-sm font-display">{skill.name}</span>
-                        <span className="text-[#64748B] ml-2">({skill.level})</span>
-                      </div>
-                      <span className="text-[#0EA5C6] font-bold font-data text-sm tabular-nums">
-                        {skill.proficiency}%
-                      </span>
+                    <div className="flex justify-between items-center gap-3 text-xs">
+                      <span className="font-bold text-[#0F172A] text-sm font-display">{skill.name}</span>
+                      <select
+                        aria-label={`${skill.name} level`}
+                        value={skill.level}
+                        onChange={(e) => {
+                          const level = e.target.value as SkillLevel;
+                          const updatedSkills = formData.skills.map((s) =>
+                            s.id === skill.id ? { ...s, level } : s
+                          );
+                          setFormData({ ...formData, skills: updatedSkills });
+                          updateSkillLevel(skill.id, level);
+                        }}
+                        className="px-2.5 py-1.5 rounded-lg bg-white border border-[#DCE7F2] text-[#0F172A] text-xs font-semibold"
+                      >
+                        <option value="Advanced">Advanced</option>
+                        <option value="Proficient">Proficient</option>
+                        <option value="Familiar">Familiar</option>
+                      </select>
                     </div>
-                    <input
-                      type="range"
-                      min="50"
-                      max="100"
-                      value={skill.proficiency}
-                      onChange={(e) => {
-                        const val = parseInt(e.target.value, 10);
-                        const updatedSkills = formData.skills.map((s) =>
-                          s.id === skill.id ? { ...s, proficiency: val } : s
-                        );
-                        setFormData({ ...formData, skills: updatedSkills });
-                        updateSkillProficiency(skill.id, val);
-                      }}
-                      className="w-full accent-[#0EA5C6] cursor-pointer"
-                    />
                     <p className="text-[11px] text-[#64748B] leading-normal">{skill.description}</p>
                   </div>
                 ))}

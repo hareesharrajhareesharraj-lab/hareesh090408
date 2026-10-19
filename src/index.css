@@ -14,6 +14,23 @@
   }
 }
 
+/* Keep section headings clear of the fixed navbar when jumping to anchors */
+main section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Visible keyboard focus for every interactive element (unlayered so it wins over utility resets) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #0284C7;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
 /* Light card surfaces (class names kept for compatibility) */
 .glass-panel {
   background: rgba(255, 255, 255, 0.88);
@@ -141,7 +158,27 @@
   }
 }
 
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.toast-in {
+  animation: toast-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .toast-in {
+    animation: none;
+  }
   .ambient-glow {
     animation: none;
   }

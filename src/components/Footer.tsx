@@ -1,9 +1,10 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
+import { prefersReducedMotion } from '../lib/motion';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
   };
 
   return (
@@ -16,20 +17,19 @@ export const Footer: React.FC = () => {
             <div className="text-lg font-bold text-[#0F172A] font-display tracking-tight">
               HAREESHARRAJ
             </div>
-            <p className="text-xs text-[#64748B]">
-              © 2026 HAREESHARRAJ. Built with passion and purpose.
+            <p className="text-xs text-[#475569]">
+              © 2026 Hareesharraj. Built with passion and purpose.
             </p>
           </div>
 
           {/* Nav links */}
-          <div className="flex items-center gap-6 text-xs text-[#64748B] font-medium">
+          <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-[#475569] font-medium">
             <a href="#home" className="hover:text-[#0284C7] transition-colors">Home</a>
             <a href="#about" className="hover:text-[#0284C7] transition-colors">About</a>
             <a href="#skills" className="hover:text-[#0284C7] transition-colors">Skills</a>
-            <a href="#project" className="hover:text-[#0284C7] transition-colors">Project</a>
-            <a href="#blog" className="hover:text-[#0284C7] transition-colors">Blog</a>
+            <a href="#project" className="hover:text-[#0284C7] transition-colors">Projects</a>
             <a href="#contact" className="hover:text-[#0284C7] transition-colors">Contact</a>
-          </div>
+          </nav>
 
           {/* Back to top button */}
           <button

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Mail, Sparkles, Database, Brain, Cpu } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
+import { prefersReducedMotion } from '../lib/motion';
 
 export const Hero: React.FC = () => {
   const { data } = usePortfolio();
@@ -17,7 +18,7 @@ export const Hero: React.FC = () => {
     e.preventDefault();
     const elem = document.querySelector(id);
     if (elem) {
-      elem.scrollIntoView({ behavior: 'smooth' });
+      elem.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
     }
   };
 
@@ -44,7 +45,7 @@ export const Hero: React.FC = () => {
             
             {/* Department kicker */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0EA5C6]/10 border border-[#DCE7F2] text-[#0284C7] text-xs sm:text-sm font-medium shadow-inner shadow-[#0EA5C6]/10">
-              <Sparkles className="w-4 h-4 text-[#14B8A6] animate-pulse" />
+              <Sparkles className="w-4 h-4 text-[#14B8A6] motion-safe:animate-pulse" aria-hidden="true" />
               <span>{data.department}</span>
             </div>
 
@@ -62,7 +63,7 @@ export const Hero: React.FC = () => {
             </h2>
 
             {/* Short Description */}
-            <p className="text-[#475569] text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
+            <p className="text-[#334155] text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
               {data.heroDescription}
             </p>
 
@@ -139,7 +140,7 @@ export const Hero: React.FC = () => {
                         {data.name}
                       </p>
                       <p className="text-[11px] text-[#0284C7] font-medium">
-                        {data.department} · Age {data.age}
+                        {data.department}
                       </p>
                     </div>
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/60" title="Active & Open to Opportunities" />

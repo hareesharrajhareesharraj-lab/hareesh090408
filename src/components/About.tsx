@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, GraduationCap, Calendar, Mail, Award, BookOpen, Compass, ArrowRight } from 'lucide-react';
+import { Target, GraduationCap, Briefcase, Mail, Award, BookOpen, Compass, ArrowRight } from 'lucide-react';
 import { usePortfolio } from '../context/PortfolioContext';
 
 export const About: React.FC = () => {
@@ -13,9 +13,9 @@ export const About: React.FC = () => {
       color: 'text-[#0EA5C6]',
     },
     {
-      icon: Calendar,
-      label: 'Age',
-      value: `${data.age} Years`,
+      icon: Briefcase,
+      label: 'Availability',
+      value: data.availability,
       color: 'text-[#0284C7]',
     },
     {
@@ -59,7 +59,7 @@ export const About: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="text-xs font-semibold text-[#0EA5C6] tracking-wider uppercase mb-2">
-            01 · Professional Profile
+            01 · About Me
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] font-display tracking-tight">
             About Me
@@ -75,10 +75,10 @@ export const About: React.FC = () => {
                 Building the Future of Technology with AI & Data Science
               </h3>
             </div>
-            <p className="text-[#475569] text-base sm:text-lg leading-relaxed mb-6 font-normal">
+            <p className="text-[#1E293B] text-base sm:text-lg leading-relaxed mb-6 font-normal">
               {data.aboutIntro}
             </p>
-            <p className="text-[#64748B] text-sm sm:text-base leading-relaxed">
+            <p className="text-[#334155] text-sm sm:text-base leading-relaxed">
               With hands-on experience in complex algorithmic development, exploratory data analysis on real-world space telemetry, and predictive modeling, he bridges theoretical computer science concepts with actionable technological implementations.
             </p>
           </div>
@@ -97,13 +97,14 @@ export const About: React.FC = () => {
                   <div className="w-9 h-9 rounded-lg bg-[#0EA5C6]/10 border border-[#DCE7F2] flex items-center justify-center mb-3">
                     <Icon className={`w-5 h-5 ${detail.color}`} />
                   </div>
-                  <p className="text-xs font-medium text-[#64748B] uppercase tracking-wider mb-1">
+                  <p className="text-xs font-semibold text-[#475569] uppercase tracking-wider mb-1">
                     {detail.label}
                   </p>
                   {detail.isLink ? (
                     <a
                       href={detail.href}
-                      className="text-sm font-semibold text-[#0284C7] hover:text-[#0284C7] transition-colors break-all"
+                      aria-label={`Send an email to ${detail.value}`}
+                      className="block text-sm font-semibold text-[#0284C7] hover:text-[#0369A1] hover:underline underline-offset-2 transition-colors [overflow-wrap:anywhere] rounded"
                     >
                       {detail.value}
                     </a>
@@ -148,7 +149,7 @@ export const About: React.FC = () => {
                 <h4 className="text-base font-bold text-[#0F172A] font-display mb-2">
                   {pillar.title}
                 </h4>
-                <p className="text-sm text-[#64748B] leading-relaxed">
+                <p className="text-sm text-[#334155] leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
